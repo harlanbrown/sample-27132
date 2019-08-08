@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.sample.myfancybox.actions">
+    <extension point="actions" target="org.nuxeo.ecm.platform.actions.ActionService">
+        <action id="myFancybox" order="40" label="assign" type="fancybox" icon="" >
+            <category>CURRENT_SELECTION_LIST</category>
+            <category>ORDERABLE_CURRENT_SELECTION_LIST</category>
+            <properties>
+                <property name="include">/incl/my_fancybox.xhtml</property>
+                <property name="autoDimensions">false</property>
+                <property name="height">400</property>
+                <property name="width">600</property>
+            </properties>
+            <filter id="filter@myFancyBox">
+                <rule grant="true">
+                </rule>
+            </filter>
+        </action>
+    </extension>
+</component>

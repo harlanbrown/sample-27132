@@ -1,0 +1,13 @@
+<h:panelGroup layout="block"
+              xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:h="http://java.sun.com/jsf/html"
+              xmlns:nxh="http://nuxeo.org/nxweb/html"
+              xmlns:nxu="http://nuxeo.org/nxweb/util"
+              xmlns:nxl="http://nuxeo.org/nxforms/layout">
+
+    <h:form>
+        <nxl:layout name="user_group_suggestion" mode="edit" value="#{myFancyBox.assignees}" />
+        <nxh:commandButton id="assign" value="assign" action="#{myFancyBox.assign()}" styleClass="button" />
+    </h:form>
+
+</h:panelGroup>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.sample.myfancybox.chains">
+      <extension target="org.nuxeo.ecm.core.operation.OperationServiceComponent" point="chains">
+          <chain id="MyChain">
+              <operation id="Log">
+                  <param type="string" name="level">error</param>
+                  <param type="string" name="message">expr:Context['assignees'].toString()</param>
+              </operation>
+          </chain>
+      </extension>
+</component>
