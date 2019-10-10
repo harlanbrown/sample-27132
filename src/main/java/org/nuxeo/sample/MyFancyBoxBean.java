@@ -28,7 +28,7 @@ public class MyFancyBoxBean implements Serializable {
 
     private static final String OPERATION_NAME = "MyChain";
 
-    protected List<String> assignees;
+    protected String assignee;
 
     @In(create = true, required = false)
     CoreSession documentManager;
@@ -40,10 +40,10 @@ public class MyFancyBoxBean implements Serializable {
             Map<String, Object> params = new HashMap<String, Object>();
 
             // the selection from the fancy box can be placed in a context variable
-            ctx.put("assignees", assignees);
+            ctx.put("assignee", assignee);
             
             // or the parameter passed to the chain which does the assignment
-            params.put("assignees", assignees);
+            params.put("assignee", assignee);
 
             Object result = as.run(ctx, OPERATION_NAME, params);
         } catch (InvalidChainException e) {
@@ -53,12 +53,12 @@ public class MyFancyBoxBean implements Serializable {
         }
     } 
 
-    public List<String> getAssignees() {
-        return assignees;
+    public String getAssignee() {
+        return assignee;
     }
 
-    public void setAssignees(List<String> assignees) {
-        this.assignees = assignees;
+    public void setAssignee(String assignee) {
+        this.assignee = assignee;
     }
 
 }    

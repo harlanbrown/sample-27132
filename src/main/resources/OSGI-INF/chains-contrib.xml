@@ -4,7 +4,7 @@
           <chain id="MyChain">
               <operation id="Log">
                   <param type="string" name="level">error</param>
-                  <param type="string" name="message">expr:Context['assignees'].toString()</param>
+                  <param type="string" name="message">expr:Context['assignee'].toString()</param>
               </operation>
           </chain>
       </extension>
