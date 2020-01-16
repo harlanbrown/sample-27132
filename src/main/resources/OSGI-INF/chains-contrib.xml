@@ -7,5 +7,17 @@
                   <param type="string" name="message">expr:Context['assignee'].toString()</param>
               </operation>
           </chain>
+          <chain id="MyChain2">
+              <operation id="Context.FetchDocument" />
+              <operation id="Document.Mail">
+                  <param type="string" name="from">devnull@nuxeo.com</param>
+                  <param type="stringlist" name="to">devnull@nuxeo.com</param>
+                  <param type="string" name="subject">form email</param>
+                  <param type="string" name="message">The document ${Document['dc:title']} was published.
+                  
+                      The document path is ${Document.path}
+                  </param>
+              </operation>
+          </chain>
       </extension>
 </component>

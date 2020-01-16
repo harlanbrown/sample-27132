@@ -5,9 +5,10 @@
               xmlns:nxu="http://nuxeo.org/nxweb/util"
               xmlns:nxl="http://nuxeo.org/nxforms/layout">
 
+<p>an email will be sent to the addressee with the following info:</p>
     <h:form>
         <nxl:layout name="single_user_group_suggestion" mode="edit" value="#{myFancyBox.assignee}" />
-        <nxh:commandButton id="assign" value="assign" action="#{myFancyBox.assign()}" styleClass="button" />
+        <h:inputText name="addressee" mode="edit" value="#{myFancyBox.addressee}" />
+        <nxh:commandButton id="send" value="Send" action="#{myFancyBox.send()}" styleClass="button" />
     </h:form>
-
 </h:panelGroup>
