@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <component name="org.nuxeo.sample.myfancybox.actions">
     <extension point="actions" target="org.nuxeo.ecm.platform.actions.ActionService">
-        <action id="myFancybox" order="40" label="assign" type="fancybox" icon="" >
+        <action id="myFancybox" order="40" label="Assign" type="fancybox" icon="" >
             <category>CURRENT_SELECTION_LIST</category>
             <category>ORDERABLE_CURRENT_SELECTION_LIST</category>
             <properties>
@@ -11,6 +11,7 @@
                 <property name="width">600</property>
             </properties>
             <filter id="filter@myFancyBox">
+                <!-- to learn how to filter this look at the canEditCurrentSelection filter in actions-contrib of nuxeo-platform-webapp-core and the BulkEditActions bean -->
                 <rule grant="true">
                 </rule>
             </filter>

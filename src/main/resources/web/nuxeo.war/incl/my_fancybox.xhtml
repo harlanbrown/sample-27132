@@ -3,12 +3,30 @@
               xmlns:h="http://java.sun.com/jsf/html"
               xmlns:nxh="http://nuxeo.org/nxweb/html"
               xmlns:nxu="http://nuxeo.org/nxweb/util"
+              xmlns:nxwt="http://nuxeo.org/nxforms/runtime/widgettype"
+              xmlns:c="http://java.sun.com/jstl/core"
               xmlns:nxl="http://nuxeo.org/nxforms/layout">
 
-<p>an email will be sent to the addressee with the following info:</p>
-    <h:form>
-        <nxl:layout name="single_user_group_suggestion" mode="edit" value="#{myFancyBox.assignee}" />
-        <h:inputText name="addressee" mode="edit" value="#{myFancyBox.addressee}" />
-        <nxh:commandButton id="send" value="Send" action="#{myFancyBox.send()}" styleClass="button" />
-    </h:form>
+<h:form>
+<p>For these documents:</p>
+<ul>
+    <c:forEach var="doc" items="#{myFancyBox.selectedDocuments}">
+    <li>- <h:outputText value="#{doc.title}"/></li>
+    </c:forEach>
+</ul>
+
+
+<p>An email will be sent to the addressee with the following info:</p>
+
+Addressee: <h:inputText name="addressee" mode="edit" value="#{myFancyBox.addressee}" />
+
+<p>Description of current document #{myFancyBox.description}</p>
+<p>Source of current document #{myFancyBox.source}</p>
+
+Note: <h:inputTextarea name="note" mode="edit" value="#{myFancyBox.note}" />
+
+<nxh:commandButton id="send" value="Send" action="#{myFancyBox.send()}" styleClass="button" />
+
+</h:form>
+
 </h:panelGroup>

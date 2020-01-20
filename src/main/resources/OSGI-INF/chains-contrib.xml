@@ -9,13 +9,23 @@
           </chain>
           <chain id="MyChain2">
               <operation id="Context.FetchDocument" />
+              <operation id="Context.SetVar">
+                  <param type="string" name="name">firstDoc</param>
+                  <param type="object" name="value">expr:selectedDocuments[0].title</param>
+              </operation>
               <operation id="Document.Mail">
                   <param type="string" name="from">devnull@nuxeo.com</param>
-                  <param type="stringlist" name="to">devnull@nuxeo.com</param>
-                  <param type="string" name="subject">form email</param>
-                  <param type="string" name="message">The document ${Document['dc:title']} was published.
-                  
-                      The document path is ${Document.path}
+                  <param type="stringlist" name="to">expr:Context['addressee'].toString()</param>
+                  <param type="string" name="subject">Form email</param>
+                  <param type="string" name="message">Put the body of the email here.
+
+Title of current document ${Document['dc:title']} 
+Path to current document ${Document.path}
+
+Title of first document in the list ${firstDoc}
+
+Sender's note ${note}
+
                   </param>
               </operation>
           </chain>
