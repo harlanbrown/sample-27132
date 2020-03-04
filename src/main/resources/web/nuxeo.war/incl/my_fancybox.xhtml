@@ -5,6 +5,7 @@
               xmlns:nxu="http://nuxeo.org/nxweb/util"
               xmlns:nxwt="http://nuxeo.org/nxforms/runtime/widgettype"
               xmlns:c="http://java.sun.com/jstl/core"
+              xmlns:ui="http://java.sun.com/jsf/facelets"
               xmlns:nxl="http://nuxeo.org/nxforms/layout">
 
 <h:form>
@@ -19,6 +20,59 @@
 <p>An email will be sent to the addressee with the following info:</p>
 
 Addressee: <h:inputText name="addressee" mode="edit" value="#{myFancyBox.addressee}" />
+
+CC list: 
+
+
+          <nxu:inputList value="#{myFancyBox.cclist}"
+            id="#{widget.id}_input" model="model"
+            template="#{templateValue}"
+            required="#{widgetProperty_required}"
+            removeEmpty="#{widgetProperty_removeEmpty}"
+            number="#{widgetProperty_number}"
+            diff="#{widgetProperty_diff}"
+            rendered="#{isEditMode or not empty fieldOrValue}">
+            <nxu:validateDocumentConstraint handleSubProperties="false" />
+            <h:panelGrid columns="#{isEditMode and showActions?2:1}" styleClass="listItem">
+              <c:if test="#{showActions}">
+                <h:panelGroup styleClass="listWidgetActionsTable" id="#{widget.id}_actions">
+                  <ui:include src="/widgets/list_widget_template_actions.xhtml" />
+                </h:panelGroup>
+              </c:if>
+              <h:panelGroup>
+                <table>
+                  <tbody>
+                    <nxl:subWidget>
+                      <tr>
+                        <c:if test="#{displaySubLabels}">
+                          <td class="boldColumn">
+                            <ui:include src="/widgets/incl/widget_label_template.xhtml">
+                              <ui:param name="labelStyleClass"
+                                value="boldLabel #{widgetProperty_subLabelStyleClass}" />
+                            </ui:include>
+                            <h:outputText value=" " />
+                          </td>
+                        </c:if>
+                        <td class="fieldColumn">
+                          <nxu:set var="subWidgetOnchangeProperty"
+                            value="#{empty widget.properties['onchange'] ? onchangeProperty : widget.properties['onchange']}"
+                            cache="true">
+                          <nxu:set var="subWidgetOnclickProperty"
+                            value="#{empty widget.properties['onclick'] ? onclickProperty : widget.properties['onclick']}"
+                            cache="true">
+                          <nxl:widget widget="#{widget}" value="#{model.rowData}"
+                            onclick="#{subWidgetOnclickProperty}" onchange="#{subWidgetOnchangeProperty}" />
+                          </nxu:set>
+                          </nxu:set>
+                        </td>
+                      </tr>
+                    </nxl:subWidget>
+                  </tbody>
+                </table>
+              </h:panelGroup>
+            </h:panelGrid>
+          </nxu:inputList>
+
 
 <p>Description of current document #{myFancyBox.description}</p>
 <p>Source of current document #{myFancyBox.source}</p>

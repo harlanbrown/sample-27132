@@ -43,6 +43,7 @@ public class MyFancyBoxBean implements Serializable {
     protected String source;
 
     protected List<DocumentModel> selectedDocuments;
+    protected List<String> cclist;
 
     @In(create = true, required = false)
     CoreSession documentManager;
@@ -141,5 +142,13 @@ public class MyFancyBoxBean implements Serializable {
 
     public void setSelectedDocuments(List<DocumentModel> selectedDocuments) {
         this.selectedDocuments = selectedDocuments;
+    }
+
+    public List<String> getcclist() {
+        return cclist;
+    }
+
+    public void setcclist(List<String> cclist) {
+        this.cclist = cclist;
     }
 }    
