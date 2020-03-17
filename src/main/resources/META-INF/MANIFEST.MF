@@ -6,4 +6,4 @@ Bundle-Version: 1.0.0
 Bundle-Name: sample-27132-core
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.nuxeo.sample.sample-27132-core;singleton=true
-Nuxeo-Component: OSGI-INF/actions-contrib.xml, OSGI-INF/chains-contrib.xml, OSGI-INF/layouts-contrib.xml
+Nuxeo-Component: OSGI-INF/actions-contrib.xml, OSGI-INF/chains-contrib.xml, OSGI-INF/layouts-contrib.xml, OSGI-INF/directories-contrib.xml

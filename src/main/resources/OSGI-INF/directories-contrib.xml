@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<component name="org.nuxeo.sample.directories">
+    <require>org.nuxeo.ecm.directories</require>
+
+    <extension target="org.nuxeo.ecm.directory.GenericDirectory" point="directories">
+
+        <directory name="LayoutProofIssueCategories" extends="template-vocabulary">
+            <autoincrementIdField>false</autoincrementIdField>
+            <createTablePolicy>on_missing_columns</createTablePolicy>
+            <table>studio_vocabulary_LayoutProofIssueCategories</table>
+            <dataFile>data/vocabularies/LayoutProofIssueCategories.csv</dataFile>
+            <cacheEntryName>vocab-LayoutProofIssueCategories-cache</cacheEntryName>
+            <cacheEntryWithoutReferencesName>vocab-LayoutProofIssueCategories-cache-without-references</cacheEntryWithoutReferencesName>
+        </directory>
+
+    </extension>
+
+    <extension target="org.nuxeo.ecm.core.cache.CacheService" point="caches">
+        <cache name="vocab-LayoutProofIssueCategories-cache">
+            <option name="maxSize">1000</option>
+            <option name="concurrencyLevel">500</option>
+            <ttl>60</ttl>
+        </cache>
+        <cache name="vocab-LayoutProofIssueCategories-cache-without-references">
+            <option name="maxSize">1000</option>
+            <option name="concurrencyLevel">500</option>
+            <ttl>60</ttl>
+        </cache>
+    </extension>
+
+</component>
+
