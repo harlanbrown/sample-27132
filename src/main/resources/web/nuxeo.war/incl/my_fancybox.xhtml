@@ -7,6 +7,7 @@
 
     <h:form>
         <nxl:layout name="single_user_group_suggestion" mode="edit" value="#{myFancyBox.assignee}" />
+        <nxl:widgetType name="suggestOneDirectory" mode="edit" field="#{myFancyBox.issueCategory}" required="true" directoryName="LayoutProofIssueCategories" />                                        
         <nxh:commandButton id="assign" value="assign" action="#{myFancyBox.assign()}" styleClass="button" />
     </h:form>
 

@@ -29,6 +29,7 @@ public class MyFancyBoxBean implements Serializable {
     private static final String OPERATION_NAME = "MyChain";
 
     protected String assignee;
+    protected String issueCategory;
 
     @In(create = true, required = false)
     CoreSession documentManager;
@@ -40,12 +41,17 @@ public class MyFancyBoxBean implements Serializable {
             Map<String, Object> params = new HashMap<String, Object>();
 
             // the selection from the fancy box can be placed in a context variable
-            ctx.put("assignee", assignee);
+         //   ctx.put("assignee", assignee);
             
             // or the parameter passed to the chain which does the assignment
-            params.put("assignee", assignee);
+        //    params.put("assignee", assignee);
 
-            Object result = as.run(ctx, OPERATION_NAME, params);
+            //Object result = as.run(ctx, OPERATION_NAME, params);
+
+
+            as.run(ctx, "WebUI.ClearSelectedDocuments", params);
+            as.run(ctx, "WebUI.Refresh", params);
+
         } catch (InvalidChainException e) {
             log.error("Unable to resolve reference", e);
         } catch (OperationException e) {
@@ -61,4 +67,11 @@ public class MyFancyBoxBean implements Serializable {
         this.assignee = assignee;
     }
 
+    public String getIssueCategory() {
+        return issueCategory;
+    }
+
+    public void setIssueCategory(String issueCategory) {
+        this.issueCategory = issueCategory;
+    }
 }    
